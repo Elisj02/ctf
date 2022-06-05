@@ -23,7 +23,7 @@
                         <p><span id="remarks"></span></p>
                     </div>
                     <div class="modal-button-container">
-                        <button onclick="closeScoreModal()">Continuar</button>
+                        <button onclick="save()">Ir al inicio</button>
                     </div>
                 </div>
             </div>
@@ -45,46 +45,32 @@
                     <h1 class="text-center" id="display-question">Aquí va la pregunta</h1>
                 </div>
                 <div class="game-options-container">
-
                     <div class="modal-container" id="option-modal">
-
                         <div class="modal-content-container">
                             <h1>Please Pick An Option</h1>
 
                             <div class="modal-button-container">
                                 <button onclick="closeOptionModal()">Continue</button>
                             </div>
-
                         </div>
-
                     </div>
-
                     <span>
                         <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
                         <label for="option-one" class="option" id="option-one-label"></label>
                     </span>
-
-
                     <span>
                         <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
                         <label for="option-two" class="option" id="option-two-label"></label>
                     </span>
-
-
                     <span>
                         <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
                         <label for="option-three" class="option" id="option-three-label"></label>
                     </span>
-
-
                     <span>
                         <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
                         <label for="option-four" class="option" id="option-four-label"></label>
                     </span>
-
-
                 </div>
-
             </div>
             <div class="next-button-container">
                 <button onclick="handleNextQuestion()">Siguiente</button>
@@ -155,9 +141,12 @@
                 r.optionD = answ[3];
                 r.correctOption = value.answer;
                 r.image = value.image;
+                r.category = value.category_id;
+                r.question_id = value.id;
                 questions.push(r);
             });
 
+            var partida = [];
             let shuffledQuestions = [] //empty array to hold shuffled selected questions
 
             function handleQuestions() {
@@ -195,7 +184,7 @@
             }
 
             function checkForAnswer() {
-                const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+                const currentQuestion = shuffledQuestions[indexNumber] //gets current Question
                 const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
                 const options = document.getElementsByName(
                     "option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
@@ -220,6 +209,15 @@
                         document.getElementById(correctOption).style.backgroundColor = "green"
                         playerScore++
                         indexNumber++
+                        let p = {};
+                        p.user_id = <?php echo Auth::user()->id; ?>;
+                        p.question_id = currentQuestion.question_id;
+                        p.answer = option.value;
+                        p.correct = 1;
+
+                        partida.push(p);
+                        console.log(partida);
+
                         //set to delay question number till when next question loads
                         setTimeout(() => {
                             questionNumber++
@@ -230,20 +228,27 @@
                         document.getElementById(correctOption).style.backgroundColor = "green"
                         wrongAttempt++
                         indexNumber++
+
+                        let p = {};
+                        p.user_id = <?php echo Auth::user()->id; ?>;
+                        p.question_id = currentQuestion.question_id;
+                        p.answer = option.value;
+                        p.correct = 0;
+                        partida.push(p);
+                        console.log(partida);
                         //set to delay question number till when next question loads
                         setTimeout(() => {
                             questionNumber++
                         }, 1000)
                     }
                 })
+
             }
-
-
 
             //called when the next button is called
             function handleNextQuestion(time = false) {
-                  checkForAnswer()
-                  unCheckRadioButtons()
+                checkForAnswer()
+                unCheckRadioButtons()
 
                 //delays next question displaying for a second
                 setTimeout(() => {
@@ -298,11 +303,11 @@
                 document.getElementById('wrong-answers').innerHTML = wrongAttempt
                 document.getElementById('right-answers').innerHTML = playerScore
                 document.getElementById('score-modal').style.display = "flex"
-
             }
 
             //closes score modal and resets game
             function closeScoreModal() {
+                reinicio();
                 questionNumber = 1
                 playerScore = 0
                 wrongAttempt = 0
@@ -314,14 +319,28 @@
 
             //function to close warning modal
             function closeOptionModal() {
+                reinicio();
                 document.getElementById('option-modal').style.display = "none"
             }
 
             function desordenar(array) {
                 array = array.sort(function() {
-                    return Math.random() - 1
+                    return Math.random() - 0.5
                 });
                 return array;
+            }
+
+            function save() {
+                axios.post('{{route('uya.store')}}', {
+                        partidas: JSON.stringify(partida),
+                    })
+                    .then(res => {
+                        console.log(res.data)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+
             }
         </script>
     </body>

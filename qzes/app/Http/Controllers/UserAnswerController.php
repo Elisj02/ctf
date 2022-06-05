@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserAnswer;
 
 class UserAnswerController extends Controller
 {
@@ -36,7 +37,23 @@ class UserAnswerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $partidas = json_decode($request->partidas, true);
+
+        try {
+            foreach ($partidas as $value) {
+                $newUserAnswer = new UserAnswer();
+                $newUserAnswer->user_id = $value->user_id;
+                $newUserAnswer->question_id = $value->question_id;
+                $newUserAnswer->answer = $value->answer;
+                $newUserAnswer->category_id = $value->category_id;
+                $newUserAnswer->correct = $value->correct;
+
+                $newUserAnswer->save();
+            }
+        return redirect()->route('dashboard');
+        } catch (QueryException $exception) {
+            return redirect()->route('dashboard')->with('error', 1);
+        };
     }
 
     /**

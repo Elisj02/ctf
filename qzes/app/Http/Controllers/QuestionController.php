@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
@@ -25,7 +26,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        $categories = DB::table('categories')->get();
+        return view('question.create')->with('categories', $categories);
     }
 
     /**
@@ -36,7 +38,52 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $validate = $request->validate([
+            'question' => 'required',
+            'r1' => 'required',
+            'r2' => 'required',
+            'r3' => 'required',
+            'r4' => 'required',
+            'answer' => 'required',
+            'image' => 'required',
+        ]);
+
+        try {
+            $newQuestion = new Question();
+            $newQuestion->question = $request->input('question');
+            $newQuestion->answer = $request->input('answer');
+            $newQuestion->category_id = $request->input('category');
+            $nombreFoto = time() . "_" . $request->file('image')->getClientOriginalName();
+            $newQuestion->image = $nombreFoto;
+            $newQuestion->save();
+
+            $question_id = DB::table('questions')->max('id');
+            $newAnswer = new Answer();
+            $newAnswer->option = $request->input('r1');
+            $newAnswer->question_id = $question_id;
+            $newAnswer->save();
+
+            $newAnswer2 = new Answer();
+            $newAnswer2->option = $request->input('r2');
+            $newAnswer2->question_id = $question_id;
+            $newAnswer2->save();
+
+            $newAnswer3 = new Answer();
+            $newAnswer3->option = $request->input('r3');
+            $newAnswer3->question_id = $question_id;
+            $newAnswer3->save();
+
+            $newAnswer4 = new Answer();
+            $newAnswer4->option = $request->input('r4');
+            $newAnswer4->question_id = $question_id;
+            $newAnswer4->save();
+
+            $request->file('image')->storeAs('public/images', $nombreFoto);
+            return redirect()->route('question.index');
+        } catch (QueryException $exception) {
+            return redirect()->route('question.index')->with('error', 1);
+
+        };
     }
 
     /**
@@ -50,17 +97,9 @@ class QuestionController extends Controller
         $myquestion = Question::findOrFail($id);
         $myanswers = DB::table('answers')->where(['question_id' => $id])->get();
         $category = DB::table('categories')->where(['id' => $myquestion->category_id])->get();
+        $url='storage/images/';
 
-        return view('question.show')->with('myquestion', $myquestion)->with('myanswers', $myanswers)->with('category', $category);
-    }
-
-        public function search($q)
-    {
-        $myquestion = DB::table('questions')->where('question', 'like', "%$q%")->get();
-        $myanswers = DB::table('answers')->where(['question_id' => $id])->get();
-        $category = DB::table('categories')->where(['id' => $myquestion->category_id])->get();
-
-        return view('question.show')->with('myquestion', $myquestion)->with('myanswers', $myanswers)->with('category', $category);
+        return view('question.show')->with('myquestion', $myquestion)->with('myanswers', $myanswers)->with('category', $category)->with('url', $url);
     }
 
     /**
@@ -75,8 +114,9 @@ class QuestionController extends Controller
         $myanswers = DB::table('answers')->where(['question_id' => $id])->get();
         $mycategory = DB::table('categories')->where(['id' => $myquestion->category_id])->get();
         $categories = DB::table('categories')->get();
+         $url='storage/images/';
 
-        return view('question.edit')->with('myquestion', $myquestion)->with('myanswers', $myanswers)->with('mycategory', $mycategory)->with('categories', $categories);
+        return view('question.edit')->with('myquestion', $myquestion)->with('myanswers', $myanswers)->with('mycategory', $mycategory)->with('categories', $categories)->with('url', $url);
     }
 
     /**
@@ -86,21 +126,51 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $idr1, $idr2, $idr3, $idr4)
     {
-        try {
-            $newQuestion = User::findOrFail($id);
-            $newQuestion->name = $request->input('name');
-            $newQuestion->surnames = $request->input('surnames');
-            $newQuestion->email = $request->input('email');
-            $newQuestion->username = $request->input('username');
-            $newQuestion->icon = $request->input('icon');
+        $validate = $request->validate([
+            'question' => 'required',
+            'r1' => 'required',
+            'r2' => 'required',
+            'r3' => 'required',
+            'r4' => 'required',
+            'answer' => 'required',
+            'image' => 'required',
+        ]);
 
+        try {
+            $newQuestion = Question::findOrFail($id);
+            $newQuestion->question = $request->input('question');
+            $newQuestion->answer = $request->input('answer');
+            $newQuestion->category_id = $request->input('category');
+            $nombreFoto = time() . "_" . $request->file('image')->getClientOriginalName();
+
+            if (is_uploaded_file($request->image)){
+                $nombreFoto = time() . "_" . $request->file('image')->getClientOriginalName();
+                $newQuestion->image = $nombreFoto;
+                $request->file('imagen')->storeAs('public/images', $nombreFoto);
+            }
             $newQuestion->save();
 
-            return redirect()->route('question.show', $newUser->id);
+            $newAnswer = Question::findOrFail($idr1);
+            $newAnswer->option = $request->input('r1');
+            $newAnswer->save();
+
+            $newAnswer2 = Question::findOrFail($idr2);
+            $newAnswer2->option = $request->input('r2');
+            $newAnswer2->save();
+
+            $newAnswer3 = Question::findOrFail($idr3);
+            $newAnswer3->option = $request->input('r3');
+            $newAnswer3->save();
+
+            $newAnswer4 = Question::findOrFail($idr4);
+            $newAnswer4->option = $request->input('r4');
+            $newAnswer4->save();;
+
+            return redirect()->route('question.index');
         } catch (QueryException $exception) {
-            return redirect()->route('question.show', $newUser->id)->with('error', 1);
+            return redirect()->route('question.index')->with('error', 1);
 
         };
     }

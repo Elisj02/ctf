@@ -1,7 +1,7 @@
 INSERT INTO answers (
   question_id, option
-) 
-VALUES 
+)
+VALUES
   (
     '1',
     'España'
@@ -221,6 +221,10 @@ VALUES
   (
     '14',
     'Colina'
+  ),
+    (
+    '14',
+    'Santa María'
   ),
   (
     '15',
@@ -857,11 +861,11 @@ VALUES
  (
    '54',
    'Luigi Salgari'
-  ), 
+  ),
   (
     '54',
     'Julio Verne'
-  ), 
+  ),
   (
     '55',
     'Johannes Vermeer'
@@ -965,6 +969,14 @@ VALUES
  (
    '61',
    'Izquierdo'
+  ),
+   (
+   '61',
+   'El hígado no existe'
+  ),
+ (
+   '61',
+   'Forma parte de la cabeza'
   ),
  (
    '62',
@@ -1101,15 +1113,15 @@ VALUES
  (
    '70',
    'Eucariotas'
-  ), 
+  ),
   (
     '70',
     'Protista'
-  ), 
+  ),
   (
     '70',
     'Vegetal'
-  ), 
+  ),
   (
     '71',
     'Uva'
@@ -1784,7 +1796,7 @@ VALUES
   ),
   (
     '113',
-    'Real MAdrid'
+    'Real Madrid'
   ),
   (
     '113',

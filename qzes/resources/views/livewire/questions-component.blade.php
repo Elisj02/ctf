@@ -2,12 +2,12 @@
     {{-- The best athlete wants his opponent at his best. --}}
     <div class="form-group has-search" style="margin-left: 30px;">
         <span class="bi bi-search form-control-feedback"></span>
-        <input wire:model="pregunta" class="form-control" type="text" placeholder="Buscar por pregunta">
+        <input wire:model="pregunta" class="form-control inpTxt" type="text" placeholder="Buscar por pregunta">
     </div>
-    <form action="{{ route('question.create') }}" style="margin-right: 35px; margin-bottom:100px;">
+    <form action="{{ route('question.create') }}" style="margin-left: 30px; margin-bottom:100px;">
         @csrf
         <button id="btn-submit" type="submit"
-            class="text-white rounded-md text-center bg-sky-400 py-1 px-1 inline-flex items-center focus:outline-none md:float-right">
+            class="text-white rounded-md text-center bg-sky-400 py-1 px-1 inline-flex items-center focus:outline-none md:float-left">
             <svg fill="none" class="w-4 mr-2" viewBox="0 0 16 16" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -61,7 +61,7 @@
                         <td class="p-2 text-center block md:table-cell">
                             {{ $myquestion->category_id }}
                         </td>
-                        <td class="p-2 text-center block md:table-cell"><img src="{{ $myquestion->image }}">
+                        <td class="p-2 text-center block md:table-cell"><img src="{{asset($url.$myquestion->image)}}">
                         </td>
 
                         <td class="p-2 text-center block md:table-cell">

@@ -22,9 +22,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('role');
             $table->integer('points');
-            $table->integer('totalPoints');
             $table->integer('gamesPlayed');
-            $table->integer('gamesWon');
             $table->string('icon');
             $table->time('gameTime');
             $table->string('password');

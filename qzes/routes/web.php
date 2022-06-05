@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionAnswerController;
+use App\Http\Controllers\UserAnswerController;
 
 
 /*
@@ -55,5 +56,6 @@ Route::resource('question', QuestionController::class)->middleware(['auth', 'ver
 
 Route::resource('qya', QuestionAnswerController::class)->middleware(['auth', 'verified']);
 
+Route::resource('uya', UserAnswerController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

@@ -13,6 +13,7 @@ class QuestionsComponent extends Component
     public function render()
     {
         $myquestions = Question::where('question', 'like', '%' . $this->pregunta . '%')->get();
-        return view('livewire.questions-component', ['myquestions'=>$myquestions]);
+        $url='storage/images/';
+        return view('livewire.questions-component', ['myquestions'=>$myquestions])->with('url', $url);
     }
 }

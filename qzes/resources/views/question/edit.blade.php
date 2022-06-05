@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Jugar') }}
+            {{ __('Editar pregunta') }}
         </h2>
     </x-slot>
     <div class="informacion-2 justify-content-center">
@@ -15,34 +15,51 @@
             <form action="{{ route('question.update', $myquestion->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <p style="margin-left: 90px; margin-top: 10px;">Categoría: {{ $mycategory[0]->name }}</p>
+                <p style="margin-left: 90px; margin-top: 10px;">Categoría:
+                    <select name="category" id="category" required
+                        style="border-radius: 20px; text-align: center; margin-left: 20px;">
+                        @foreach ($categories as $category)
+                            @if ($category->id == $myquestion->category_id)
+                                <option selected="selected" value="{{ $category->id }}">{{ $category->name }}
+                                </option>
+                            @else
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </p>
                 <div class="game-quiz-container">
                     <div class="image-question-container">
-                        <img class="imagen" src="{{ $myquestion->image }}" />
-                        Url de la foto:<input type="text"
-                            style="border-radius: 20px; background: none; border: 2px solid #ccc; margin: 5px; width: 80%; text-align:center;" name="image"
-                            value="{{ $myquestion->image }}" placeholder="{{ $myquestion->image }}">
+                        <img class="imagen" src="{{ asset($url . $myquestion->image) }}" />
+                        <div class="image-question-container mt-4">
+                            Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" id="imagen" type="file"
+                                name="image" id="image" required />
+                        </div>
 
                     </div>
                     <div class="container my-4">
                         Pregunta:<input type="text"
                             style="border-radius: 20px; width: 100%; background: none; border: 2px solid #ccc; text-align:center;"
-                            value="{{ $myquestion->question }}" placeholder="{{ $myquestion->question }}" name="question">
+                            value="{{ $myquestion->question }}" placeholder="{{ $myquestion->question }}"
+                            name="question">
                     </div>
                     <div class="game-options-container">
                         <div class="boxed">Respuestas:<br>
-                            @foreach ($myanswers as $i => $myanswer)
-                                @if ($myanswer->option == $myquestion->answer)
-                                    <input type="text"
-                                        style="border-radius: 20px; border: solid 2px rgb(175, 122, 197); background-color: rgb(215, 189, 226); margin: 5px; width: 45%; text-align:center;"
-                                        value="{{ $myanswer->option }}" placeholder="{{ $myanswer->option }}" name="{{$i}}">
-                                @else
-                                    <input type="text"
-                                        style="border-radius: 20px; border: solid 2px #ccc; background: none; margin: 5px; width: 45%; text-align:center;"
-                                        value="{{ $myanswer->option }}" placeholder="{{ $myanswer->option }}" name="{{$i}}">
-                                @endif
-                            @endforeach
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
+                                name="r1" id="r1" placeholder="respuesta 1" required>
 
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
+                                name="r2" id="r2" placeholder="respuesta 2" required>
+
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
+                                name="r3" id="r3" placeholder="respuesta 3" required>
+
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
+                                name="r4" id="r4" placeholder="respuesta 4" required>
                         </div>
                     </div>
                 </div>

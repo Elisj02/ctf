@@ -15,7 +15,7 @@
             <p style="margin-left: 90px; margin-top: 10px;">Categoría: {{ $category[0]->name }}</p>
             <div class="game-quiz-container">
                 <div class="image-question-container">
-                    <img class="imagen" src="{{ $myquestion->image }}" />
+                    <img class="imagen" src="{{asset($url.$myquestion->image)}}" />
                 </div>
                 <div class="container my-4">
                     <h1 class="text-center">{{ $myquestion->question }}</h1>

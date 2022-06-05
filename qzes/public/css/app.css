@@ -45,6 +45,9 @@
 
 .has-search .form-control {
     padding-left: 2.375rem;
+    width: 30%;
+    border-radius: 20px;
+    margin-bottom: 30px;
 }
 
 .has-search .form-control-feedback {
@@ -59,7 +62,7 @@
     color: #aaa;
 }
 
-input[type=text] {
+.inpTxt {
     background: none;
     width: 30%;
     border-radius: 20px;
@@ -193,6 +196,7 @@ td {
     border: 2px solid darkgray;
     border-radius: 20px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 span label {
@@ -208,10 +212,10 @@ span label {
 }
 
 span label:hover {
-    -ms-transform: scale(1.12);
-    -webkit-transform: scale(1.12);
-    transform: scale(1.12);
-    color: white;
+    -ms-transform: scale(1.11);
+    -webkit-transform: scale(1.11);
+    transform: scale(1.11);
+    color: rgb(207, 157, 255);
 }
 
 input[type="radio"] {

@@ -14,14 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('userAnswers', function (Blueprint $table) {
+        Schema::create('useranswers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('question_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-            $table->bigInteger('answer_id')->unsigned();
-            $table->foreign('answer_id')->references('id')->on('answers');
+            $table->string('answer');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->integer('correcto');
@@ -40,6 +39,6 @@ return new class extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('userAnswers');
+        Schema::dropIfExists('useranswers');
     }
 };
