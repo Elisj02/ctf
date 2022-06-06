@@ -12,7 +12,9 @@
 
     <body>
         <main>
-            <form action="{{ route('question.update', $myquestion->id) }}" enctype="multipart/form-data">
+            <form method="POST"
+                action="{{ route('question.update', $myquestion->id, $myanswers[0]->id, $myanswers[1]->id, $myanswers[2]->id, $myanswers[3]->id) }}"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <p style="margin-left: 90px; margin-top: 10px;">Categoría:
@@ -33,7 +35,7 @@
                         <img class="imagen" src="{{ asset($url . $myquestion->image) }}" />
                         <div class="image-question-container mt-4">
                             Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" id="imagen" type="file"
-                                name="image" id="image" required />
+                                name="image" id="image" />
                         </div>
 
                     </div>
@@ -43,36 +45,45 @@
                             value="{{ $myquestion->question }}" placeholder="{{ $myquestion->question }}"
                             name="question">
                     </div>
+                    <div class="container mb-4">
+                        <p style="text-align: center">Respuesta correcta:<input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background:none;"
+                                name="answer" id="answer" placeholder="{{ $myquestion->answer }}"
+                                value="{{ $myquestion->answer }}" required></p>
+                    </div>
                     <div class="game-options-container">
                         <div class="boxed">Respuestas:<br>
                             <input type="text"
-                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
-                                name="r1" id="r1" placeholder="respuesta 1" required>
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center; background: none"
+                                name="r1" id="r1" placeholder="{{ $myanswers[0]->option }}"
+                                value="{{ $myanswers[0]->option }}" required>
 
                             <input type="text"
-                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
-                                name="r2" id="r2" placeholder="respuesta 2" required>
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
+                                name="r2" id="r2" placeholder="{{ $myanswers[1]->option }}"
+                                value="{{ $myanswers[1]->option }}" required>
 
                             <input type="text"
-                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
-                                name="r3" id="r3" placeholder="respuesta 3" required>
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
+                                name="r3" id="r3" placeholder="{{ $myanswers[2]->option }}"
+                                value="{{ $myanswers[2]->option }}" required>
 
                             <input type="text"
-                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
-                                name="r4" id="r4" placeholder="respuesta 4" required>
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
+                                name="r4" id="r4" placeholder="{{ $myanswers[3]->option }}"
+                                value="{{ $myanswers[3]->option }}" required>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-3/12 text-center md:pl-6">
-                    <a href="{{ route('question.update', $myquestion->id) }}">
-                        <button
-                            class="text-white mx-auto max-w-sm rounded-md text-center bg-green-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right mb-5">
-                            <svg fill="none" class="w-4 text-white mr-2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                            Guardar
-                        </button>
+                    <button type="submit"
+                        class="text-white mx-auto max-w-sm rounded-md text-center bg-green-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right mb-5">
+                        <svg fill="none" class="w-4 text-white mr-2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        Guardar
+                    </button>
                     </a>
                 </div>
             </form>

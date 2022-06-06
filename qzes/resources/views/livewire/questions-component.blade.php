@@ -4,6 +4,14 @@
         <span class="bi bi-search form-control-feedback"></span>
         <input wire:model="pregunta" class="form-control inpTxt" type="text" placeholder="Buscar por pregunta">
     </div>
+    <div class="form-group has-search" style="margin-left: 30px;">
+        Categoría:<select wire:model="category" class="form-control inpTxt">
+            <option value="">Todas</option>
+            @foreach ($categories as $categ)
+                <option value="{{ $categ->id }}">{{ $categ->name }}</option>
+            @endforeach
+        </select>
+    </div>
     <form action="{{ route('question.create') }}" style="margin-left: 30px; margin-bottom:100px;">
         @csrf
         <button id="btn-submit" type="submit"
@@ -61,7 +69,7 @@
                         <td class="p-2 text-center block md:table-cell">
                             {{ $myquestion->category_id }}
                         </td>
-                        <td class="p-2 text-center block md:table-cell"><img src="{{asset($url.$myquestion->image)}}">
+                        <td class="p-2 text-center block md:table-cell"><img src="{{ asset($url . $myquestion->image) }}">
                         </td>
 
                         <td class="p-2 text-center block md:table-cell">
@@ -113,6 +121,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $myquestions->links() }}
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
