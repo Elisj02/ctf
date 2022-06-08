@@ -13,7 +13,7 @@
     <body>
         <main>
             <form method="POST"
-                action="{{ route('question.update', $myquestion->id, $myanswers[0]->id, $myanswers[1]->id, $myanswers[2]->id, $myanswers[3]->id) }}"
+                action="{{ route('question.update', $myquestion->id) }}"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -72,6 +72,22 @@
                                 style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
                                 name="r4" id="r4" placeholder="{{ $myanswers[3]->option }}"
                                 value="{{ $myanswers[3]->option }}" required>
+
+                            <input type="hidden"
+                                style="display: none"
+                                name="pr1" value="{{ $myanswers[0]->id }}">
+
+                            <input type="hidden"
+                                style="display: none"
+                                name="pr2" value="{{ $myanswers[1]->id }}">
+
+                            <input type="hidden"
+                                style="display: none"
+                                name="pr3" value="{{ $myanswers[2]->id }}">
+
+                            <input type="hidden"
+                                style="display: none"
+                                name="pr4" value="{{ $myanswers[3]->id }}">
                         </div>
                     </div>
                 </div>

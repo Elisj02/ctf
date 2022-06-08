@@ -126,7 +126,7 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $idr1, $idr2, $idr3, $idr4)
+    public function update(Request $request, $id)
     {
         $validate = $request->validate([
             'question' => 'required',
@@ -150,19 +150,19 @@ class QuestionController extends Controller
             }
             $newQuestion->save();
 
-            $newAnswer = Answer::findOrFail($idr1);
+            $newAnswer = Answer::findOrFail($request->input('pr1'));
             $newAnswer->option = $request->input('r1');
             $newAnswer->save();
 
-            $newAnswer2 = Answer::findOrFail($idr2);
+            $newAnswer2 = Answer::findOrFail($request->input('pr2'));
             $newAnswer2->option = $request->input('r2');
             $newAnswer2->save();
 
-            $newAnswer3 = Answer::findOrFail($idr3);
+            $newAnswer3 = Answer::findOrFail($request->input('pr3'));
             $newAnswer3->option = $request->input('r3');
             $newAnswer3->save();
 
-            $newAnswer4 = Answer::findOrFail($idr4);
+            $newAnswer4 = Answer::findOrFail($request->input('pr4'));
             $newAnswer4->option = $request->input('r4');
             $newAnswer4->save();;
 

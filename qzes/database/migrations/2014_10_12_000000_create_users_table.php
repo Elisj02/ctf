@@ -21,10 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('username')->unique();
             $table->string('role');
-            $table->integer('points');
-            $table->integer('gamesPlayed');
             $table->string('icon');
-            $table->time('gameTime');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

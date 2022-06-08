@@ -18,6 +18,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                        {{ __('Categorías') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
                         {{ __('Acerca de') }}
                     </x-nav-link>
@@ -50,14 +55,6 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <form action="{{ route('comodines') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('comodines')" onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                                {{ __('Comodines y puntos') }}
-                            </x-dropdown-link>
-                        </form>
                         <form action="{{ route('user.show', Auth::user()->id) }}">
                             @csrf
 
@@ -112,6 +109,11 @@
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                {{ __('Categorías') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
                 {{ __('Acerca de') }}
             </x-responsive-nav-link>
@@ -132,14 +134,6 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
-                <form action="{{ route('comodines') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('comodines')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Comodines y puntos') }}
-                    </x-responsive-nav-link>
-                </form>
                 <form action="{{ route('user.show', Auth::user()->id) }}">
                     @csrf
 

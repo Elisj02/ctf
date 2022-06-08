@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\UserAnswerController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -22,9 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [UserAnswerController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/acerca', function () {
     return view('acerca');
@@ -33,10 +32,6 @@ Route::get('/acerca', function () {
 Route::get('/game', function () {
     return view('game');
 })->middleware(['auth', 'verified'])->name('game');
-
-Route::get('/comodines', function () {
-    return view('comodines');
-})->middleware(['auth', 'verified'])->name('comodines');
 
 Route::get('/sugerencias', function () {
     return view('sugerencias');
@@ -57,5 +52,7 @@ Route::resource('question', QuestionController::class)->middleware(['auth', 'ver
 Route::resource('qya', QuestionAnswerController::class)->middleware(['auth', 'verified']);
 
 Route::resource('uya', UserAnswerController::class)->middleware(['auth', 'verified']);
+
+Route::resource('category', CategoryController::class);
 
 require __DIR__.'/auth.php';

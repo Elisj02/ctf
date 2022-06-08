@@ -23,10 +23,11 @@ return new class extends Migration
             $table->string('answer');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('correcto');
+            $table->integer('correct');
+            $table->integer('time');
 
             $table->timestamps();
-            
+
             $table->softDeletes();
         });
     }

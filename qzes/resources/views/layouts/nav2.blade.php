@@ -13,18 +13,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
-                        {{ __('Acerca de') }}
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                        {{ __('Categorías') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('sugerencias')" :active="request()->routeIs('sugerencias')">
                         {{ __('Sugerencias') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
+                        {{ __('Acerca de') }}
                     </x-nav-link>
                 </div>
                 @if (Route::has('login'))
@@ -55,13 +55,18 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
-                {{ __('Acerca de') }}
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                {{ __('Categorías') }}
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('sugerencias')" :active="request()->routeIs('sugerencias')">
                 {{ __('Sugerencias') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
+                {{ __('Acerca de') }}
             </x-responsive-nav-link>
         </div>
     </div>

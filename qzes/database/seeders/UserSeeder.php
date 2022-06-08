@@ -24,10 +24,7 @@ class UserSeeder extends Seeder
         $user->email_verified_at = now();
         $user->username = 'admin';
         $user->role = 'admin';
-        $user->points = 500;
-        $user->gamesPlayed = 10;
         $user->icon = 'https://th.bing.com/th/id/R.2b9734237ff26feae10de87638ff87f1?rik=bZaPX2ubSBmzeA&pid=ImgRaw&r=0';
-        $user->gameTime = '00:00:00';
         $user->password = Hash::make('12345678');
         $user->save();
 
@@ -38,10 +35,7 @@ class UserSeeder extends Seeder
         $user->email_verified_at = now();
         $user->username = 'user';
         $user->role = 'user';
-        $user->points = 0;
-        $user->gamesPlayed = 0;
         $user->icon = 'https://cdn-icons-png.flaticon.com/512/206/206853.png';
-        $user->gameTime = '00:00:00';
         $user->password = Hash::make('12345678');
         $user->save();
 

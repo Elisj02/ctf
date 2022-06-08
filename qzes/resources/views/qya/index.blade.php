@@ -45,15 +45,6 @@
                     <h1 class="text-center" id="display-question">Aquí va la pregunta</h1>
                 </div>
                 <div class="game-options-container">
-                    <div class="modal-container" id="option-modal">
-                        <div class="modal-content-container">
-                            <h1>Please Pick An Option</h1>
-
-                            <div class="modal-button-container">
-                                <button onclick="closeOptionModal()">Continue</button>
-                            </div>
-                        </div>
-                    </div>
                     <span>
                         <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
                         <label for="option-one" class="option" id="option-one-label"></label>
@@ -73,15 +64,33 @@
                 </div>
             </div>
             <div class="next-button-container">
+                <button id="comodin" onclick="comodin()" data-toggle="tooltip" data-placement="top"
+                    title="Aporta la respuesta correcta a la pregunta para no perder puntos, puedes usarlo una vez por partida">Comodín</button>
+            </div>
+            <div class="next-button-container">
                 <button onclick="handleNextQuestion()">Siguiente</button>
             </div>
 
             </div>
         </main>
         <script>
+            var cheat = false;
+            var skip = false;
             var tiempo = 0;
             var segundos = 30;
             inicio();
+
+            function comodin() {
+                cheat = true;
+                document.getElementById('comodin').disabled = 'true';
+                document.getElementById('comodin').style.backgroundColor = 'gray';
+                handleNextQuestion();
+            }
+
+            function noTime() {
+                skip = true;
+                handleNextQuestion();
+            }
 
             function inicio() {
                 control = setInterval(cronometro, 1000);
@@ -93,6 +102,7 @@
 
             async function reinicio() {
                 clearInterval(control);
+                tiempo = 0;
                 segundos = 30;
                 Segundos.innerHTML = "00:30";
                 inicio();
@@ -116,9 +126,21 @@
                                 closeModal: true,
                             },
                         }).then((value) => {
-                        handleNextQuestion();
+                        noTime();
                     });
                 }
+            }
+
+            function noAnswer() {
+                swal("Error!", "Por favor escoge una opción",
+                    "error", {
+                        button: {
+                            text: "Aceptar",
+                            closeModal: true,
+                        },
+                    }).then((value) => {
+                    reinicio();
+                });
             }
 
             var myquestions = <?php echo json_encode($myquestions); ?>;
@@ -141,7 +163,7 @@
                 r.optionD = answ[3];
                 r.correctOption = value.answer;
                 r.image = value.image;
-                r.category = value.category_id;
+                r.category_id = value.category_id;
                 r.question_id = value.id;
                 questions.push(r);
             });
@@ -199,30 +221,32 @@
 
                 //checking to make sure a radio input has been checked or an option being chosen
                 if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3]
-                    .checked == false) {
-                    document.getElementById('option-modal').style.display = "flex"
+                    .checked == false && cheat == false && skip == false) {
+                    noAnswer();
                 }
 
                 //checking if checked radio button is same as answer
                 options.forEach((option) => {
-                    if (option.checked === true && option.value === currentQuestionAnswer) {
+                    if (option.checked === true && option.value === currentQuestionAnswer || cheat) {
                         document.getElementById(correctOption).style.backgroundColor = "green"
                         playerScore++
                         indexNumber++
                         let p = {};
                         p.user_id = <?php echo Auth::user()->id; ?>;
                         p.question_id = currentQuestion.question_id;
+                        p.category_id = currentQuestion.category_id;
                         p.answer = option.value;
                         p.correct = 1;
+                        p.tiempo = tiempo;
 
                         partida.push(p);
-                        console.log(partida);
+                        cheat = false;
 
                         //set to delay question number till when next question loads
                         setTimeout(() => {
                             questionNumber++
                         }, 1000)
-                    } else if (option.checked && option.value !== currentQuestionAnswer) {
+                    } else if (option.checked && option.value !== currentQuestionAnswer || skip) {
                         const wrongLabelId = option.labels[0].id
                         document.getElementById(wrongLabelId).style.backgroundColor = "red"
                         document.getElementById(correctOption).style.backgroundColor = "green"
@@ -232,10 +256,12 @@
                         let p = {};
                         p.user_id = <?php echo Auth::user()->id; ?>;
                         p.question_id = currentQuestion.question_id;
+                        p.category_id = currentQuestion.category_id;
                         p.answer = option.value;
                         p.correct = 0;
+                        p.tiempo = tiempo;
                         partida.push(p);
-                        console.log(partida);
+                        skip = false;
                         //set to delay question number till when next question loads
                         setTimeout(() => {
                             questionNumber++
@@ -246,7 +272,7 @@
             }
 
             //called when the next button is called
-            function handleNextQuestion(time = false) {
+            function handleNextQuestion() {
                 checkForAnswer()
                 unCheckRadioButtons()
 
@@ -317,12 +343,6 @@
                 document.getElementById('score-modal').style.display = "none"
             }
 
-            //function to close warning modal
-            function closeOptionModal() {
-                reinicio();
-                document.getElementById('option-modal').style.display = "none"
-            }
-
             function desordenar(array) {
                 array = array.sort(function() {
                     return Math.random() - 0.5
@@ -331,10 +351,9 @@
             }
 
             function save() {
-                axios.post('{{route('uya.store')}}', {
-                        partidas: JSON.stringify(partida),
-                    })
+                axios.post('{{ route('uya.store') }}', partida)
                     .then(res => {
+                        window.location.href = "{{ route('dashboard') }}";
                         console.log(res.data)
                     })
                     .catch(err => {

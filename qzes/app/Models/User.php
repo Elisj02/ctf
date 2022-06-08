@@ -25,12 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'username',
         'role',
-        'points',
-        'totalPoints',
-        'gamesPlayed',
-        'gamesWon',
         'icon',
-        'gameTime',
         'password',
     ];
 

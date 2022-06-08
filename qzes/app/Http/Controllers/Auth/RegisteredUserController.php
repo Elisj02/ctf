@@ -45,10 +45,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'username' => $request->username,
             'role' => 'user',
-            'points' => 0,
-            'gamesPlayed' => 0,
             'icon' => 'https://cdn-icons-png.flaticon.com/512/3309/3309130.png',
-            'gameTime' => '00:00:00',
             'password' => Hash::make($request->password),
 
         ]);
