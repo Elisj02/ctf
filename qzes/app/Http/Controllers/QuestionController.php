@@ -114,7 +114,7 @@ class QuestionController extends Controller
         $myanswers = DB::table('answers')->where(['question_id' => $id])->get();
         $mycategory = DB::table('categories')->where(['id' => $myquestion->category_id])->get();
         $categories = DB::table('categories')->get();
-         $url='storage/images/';
+        $url='storage/images/';
 
         return view('question.edit')->with('myquestion', $myquestion)->with('myanswers', $myanswers)->with('mycategory', $mycategory)->with('categories', $categories)->with('url', $url);
     }

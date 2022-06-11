@@ -193,7 +193,8 @@
                 document.getElementById("question-number").innerHTML = questionNumber
                 document.getElementById("player-score").innerHTML = playerScore
                 document.getElementById("display-question").innerHTML = currentQuestion.question;
-                document.getElementById("display-image").setAttribute('src', currentQuestion.image);
+                var url = '{{ URL::asset('/storage/images/') }}'
+                document.getElementById("display-image").setAttribute('src', url + '/' + currentQuestion.image);
                 document.getElementById("option-one").value = currentQuestion.optionA;
                 document.getElementById("option-two").value = currentQuestion.optionB;
                 document.getElementById("option-three").value = currentQuestion.optionC;

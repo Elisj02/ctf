@@ -16,8 +16,9 @@ class QuestionAnswerController extends Controller
     {
         $myanswers = DB::table('answers')->get();
         $myquestions = DB::table('questions')->get();
+        $url='storage/images/';
 
-        return view('qya.index')->with('myquestions', $myquestions)->with('myanswers', $myanswers);
+        return view('qya.index')->with('myquestions', $myquestions)->with('myanswers', $myanswers)->with('url', $url);
     }
 
     /**
