@@ -1,5 +1,5 @@
 INSERT INTO answers (
-  question_id, option
+  question_id, `option`
 )
 VALUES
   (
