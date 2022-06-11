@@ -72,7 +72,7 @@
                         <td class="p-2 text-center block md:table-cell">
                             {{ $myquestion->category_id }}
                         </td>
-                        <td class="p-2 text-center block md:table-cell"><img
+                        <td class="p-2 text-center block md:table-cell"><img class="imagenQt"
                                 src="{{ asset($url . $myquestion->image) }}">
                         </td>
 

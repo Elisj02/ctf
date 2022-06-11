@@ -148,6 +148,12 @@ td {
     border-radius: 20px;
 }
 
+.imagenQt {
+    width: 500px;
+    margin: 0px auto;
+    display: block;
+}
+
 .game-quiz-container {
     width: 80%;
     margin-left: 80px;
