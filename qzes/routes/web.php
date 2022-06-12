@@ -41,6 +41,12 @@ Route::get('/cuenta', function () {
     return view('cuenta');
 })->middleware(['auth', 'verified'])->name('cuenta');
 
+Route::get('/prejuego', function () {
+    return view('prejuego');
+})->middleware(['auth', 'verified'])->name('prejuego');
+
+Route::get('/ranking', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('ranking');
+
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware(['guest'])->name('password.request');

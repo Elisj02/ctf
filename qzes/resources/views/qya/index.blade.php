@@ -23,7 +23,7 @@
                         <p><span id="remarks"></span></p>
                     </div>
                     <div class="modal-button-container">
-                        <button onclick="save()">Ir al inicio</button>
+                        <button onclick="closeScoreModal()">Ir al inicio</button>
                     </div>
                 </div>
             </div>
@@ -307,6 +307,7 @@
 
             // function for when all questions being answered
             function handleEndGame() {
+                save();
                 let remark = null
                 let remarkColor = null
 
@@ -334,14 +335,7 @@
 
             //closes score modal and resets game
             function closeScoreModal() {
-                reinicio();
-                questionNumber = 1
-                playerScore = 0
-                wrongAttempt = 0
-                indexNumber = 0
-                shuffledQuestions = []
-                NextQuestion(indexNumber)
-                document.getElementById('score-modal').style.display = "none"
+                window.location.href = "{{ route('dashboard') }}";
             }
 
             function desordenar(array) {
@@ -353,14 +347,6 @@
 
             function save() {
                 axios.post('{{ route('uya.store') }}', partida)
-                    .then(res => {
-                        window.location.href = "{{ route('dashboard') }}";
-                        console.log(res.data)
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
-
             }
         </script>
     </body>

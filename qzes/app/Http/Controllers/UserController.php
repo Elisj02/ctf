@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\UserAnswer;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $ranking = DB::table('users')
+        ->select('users.*', 'useranswers.*')
+        ->join(DB::raw('(SELECT user_id, SUM(correct) as puntos from `useranswers`  where correct = 1 GROUP BY user_id) useranswers'),
+        function($join)
+        {
+           $join->on('users.id', '=', 'useranswers.user_id');
+        })
+        ->orderBy('puntos', 'DESC')
+        ->get();
+        return view('ranking', compact('ranking'));
     }
 
     /**

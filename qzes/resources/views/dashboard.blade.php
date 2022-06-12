@@ -12,7 +12,7 @@
                     src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
             </a>
             <div>
-                <a href="{{ route('qya.index') }}">
+                <a href="{{ route('prejuego') }}">
                     <button class="button-large-success">
                         <p class="inicio">JUGAR</p>
                     </button>

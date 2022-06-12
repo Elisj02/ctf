@@ -13,8 +13,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('qya.index')" :active="request()->routeIs('qya.index')">
+                    <x-nav-link :href="route('prejuego')" :active="request()->routeIs('prejuego')">
                         {{ __('Jugar') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
+                        {{ __('Ranking') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -112,6 +117,11 @@
             <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
                 {{ __('Categorías') }}
             </x-responsive-nav-link>
+        </div>
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
+                {{ __('Ranking') }}
+            </x-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('acerca')" :active="request()->routeIs('acerca')">
