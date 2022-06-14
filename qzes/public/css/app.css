@@ -103,13 +103,12 @@ td {
 }
 
 .game-quiz-container {
-    width: 80%;
     margin-top: 15px;
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .game-details-container {
