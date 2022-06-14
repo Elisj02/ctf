@@ -4,7 +4,7 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    <div class="max-w-7xl sm:px-6 lg:px-8 my-4">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
         <div class="informacion-2 justify-content-center min-w-full block">
             <p style="text-align: center">
                 <a href="https://www.instagram.com/elisj2002/"><svg xmlns="http://www.w3.org/2000/svg" width="25"
@@ -27,10 +27,12 @@
     <div class="flex items-center justify-center mt-5">
         <img src="{{ asset('storage/images/eli.jpg') }}" style="width: 40%; border-radius:20px;" />
     </div>
-    <div class="informacion-2 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
-        <h1 class="estadisticas-del-juego">
-            HABILIDADES
-        </h1>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+        <div class="informacion-2 justify-content-center">
+            <h1 class="estadisticas-del-juego">
+                HABILIDADES
+            </h1>
+        </div>
     </div>
 
     <div class="pieChart">

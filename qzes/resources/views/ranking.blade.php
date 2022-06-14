@@ -4,8 +4,8 @@
             {{ __('Jugar') }}
         </h2>
     </x-slot>
-    <div class="max-w-7xl sm:px-6 lg:px-8 my-4">
-        <div class="informacion-2 justify-content-center min-w-full block">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+        <div class="informacion-2 justify-content-center min-w-full">
             <h1 class="estadisticas-del-juego">
                 RANKING
             </h1>

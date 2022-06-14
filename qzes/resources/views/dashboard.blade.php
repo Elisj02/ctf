@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-7xl sm:px-6 lg:px-8 mt-5 mb-5">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5 mb-5">
         <div class="informacion-2 justify-content-center min-w-full block">
             <h1 class="estadisticas-del-juego">
                 ESTADÍSTICAS DEL JUEGO

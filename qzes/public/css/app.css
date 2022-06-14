@@ -67,26 +67,6 @@
     margin-bottom: 30px;
 }
 
-/* .boxed label {
-    display: inline-block;
-    width: 280px;
-    padding: 10px;
-    border: solid 2px #ccc;
-    border-radius: 20px;
-    transition: all 0.4s;
-    text-align: center;
-    margin: 5px;
-}
-
-.boxed input[type="radio"] {
-    display: none;
-}
-
-.boxed input[type="radio"]:checked+label {
-    border: solid 2px rgb(175, 122, 197);
-    background-color: rgb(215, 189, 226);
-} */
-
 table {
     border-radius: 20px;
     overflow: hidden;
