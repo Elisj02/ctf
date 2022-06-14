@@ -5,22 +5,24 @@
         </h2>
     </x-slot>
 
-    <div class="informacion-1 justify-content-center">
-        <div class="group-7">
-            <a href="{{ url('/dashboard') }}">
-                <img alt="" class="sector2-2"
-                    src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
-            </a>
-            <div>
-                <a href="{{ route('prejuego') }}">
-                    <button class="button-large-success">
-                        <p class="inicio">JUGAR</p>
-                    </button>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+        <div class="informacion-1 justify-content-center min-w-full block">
+            <div class="group-7">
+                <a href="{{ url('/dashboard') }}">
+                    <img alt="" class="sector2-2"
+                        src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
                 </a>
+                <div>
+                    <a href="{{ route('prejuego') }}">
+                        <button class="button-large-success">
+                            <p class="inicio">JUGAR</p>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5 mb-5">
+    <div class="max-w-7xl sm:px-6 lg:px-8 mt-5 mb-5">
         <div class="informacion-2 justify-content-center min-w-full block my-4">
             <h1 class="estadisticas-del-juego">
                 ESTADÍSTICAS DEL JUEGO
@@ -97,7 +99,8 @@
                 var second = seconds % 60;
                 second = (second < 10) ? '0' + second : second;
                 output = document.getElementById('tiempo');
-                output.innerHTML = "<h1 class='text-center'>Tiempo de juego: " + hour + " horas, " + minute + " minutos y " + second + " segundos</h1>";
+                output.innerHTML = "<h1 class='text-center'>Tiempo de juego: " + hour + " horas, " + minute + " minutos y " +
+                    second + " segundos</h1>";
             }
             var yValues = [ciencias, geografia, arte, deporte, historia, entretenimiento];
             var barColors = [
