@@ -5,20 +5,18 @@
         </h2>
     </x-slot>
 
-    <div class="max-w-7xl sm:px-6 lg:px-8 my-4">
-        <div class="informacion-1 justify-content-center min-w-full block">
-            <div class="d-inline-flex justify-content-center min-w-full block">
-                <a href="{{ url('/dashboard') }}">
-                    <img alt="" class="sector2-2"
-                        src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
+    <div class="informacion-1 justify-content-centermax-w-7xl sm:px-6 lg:px-8 my-4">
+        <div class="d-inline-flex justify-content-center min-w-full block">
+            <a href="{{ url('/dashboard') }}">
+                <img alt="" class="sector2-2"
+                    src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
+            </a>
+            <div>
+                <a href="{{ route('prejuego') }}">
+                    <button class="button-large-success">
+                        <p class="inicio">JUGAR</p>
+                    </button>
                 </a>
-                <div>
-                    <a href="{{ route('prejuego') }}">
-                        <button class="button-large-success">
-                            <p class="inicio">JUGAR</p>
-                        </button>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
