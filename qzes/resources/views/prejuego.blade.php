@@ -4,10 +4,12 @@
             {{ __('Jugar') }}
         </h2>
     </x-slot>
-    <div class="informacion-2 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
-        <h1 class="estadisticas-del-juego">
-            ANTES DE JUGAR ...
-        </h1>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5 mb-5">
+        <div class="informacion-2 justify-content-center min-w-full block my-4">
+            <h1 class="estadisticas-del-juego">
+                ANTES DE JUGAR...
+            </h1>
+        </div>
     </div>
 
     <body>

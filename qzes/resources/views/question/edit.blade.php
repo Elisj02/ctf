@@ -4,16 +4,17 @@
             {{ __('Editar pregunta') }}
         </h2>
     </x-slot>
-    <div class="informacion-2 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
-        <h1 class="estadisticas-del-juego">
-            PREGUNTA ID: {{ $myquestion->id }}
-        </h1>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5 mb-5">
+        <div class="informacion-2 justify-content-center min-w-full block my-4">
+            <h1 class="estadisticas-del-juego">
+                PREGUNTA ID: {{ $myquestion->id }}
+            </h1>
+        </div>
     </div>
 
     <body>
         <main>
-            <form method="POST"
-                action="{{ route('question.update', $myquestion->id) }}"
+            <form method="POST" action="{{ route('question.update', $myquestion->id) }}"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -73,21 +74,13 @@
                                 name="r4" id="r4" placeholder="{{ $myanswers[3]->option }}"
                                 value="{{ $myanswers[3]->option }}" required>
 
-                            <input type="hidden"
-                                style="display: none"
-                                name="pr1" value="{{ $myanswers[0]->id }}">
+                            <input type="hidden" style="display: none" name="pr1" value="{{ $myanswers[0]->id }}">
 
-                            <input type="hidden"
-                                style="display: none"
-                                name="pr2" value="{{ $myanswers[1]->id }}">
+                            <input type="hidden" style="display: none" name="pr2" value="{{ $myanswers[1]->id }}">
 
-                            <input type="hidden"
-                                style="display: none"
-                                name="pr3" value="{{ $myanswers[2]->id }}">
+                            <input type="hidden" style="display: none" name="pr3" value="{{ $myanswers[2]->id }}">
 
-                            <input type="hidden"
-                                style="display: none"
-                                name="pr4" value="{{ $myanswers[3]->id }}">
+                            <input type="hidden" style="display: none" name="pr4" value="{{ $myanswers[3]->id }}">
                         </div>
                     </div>
                 </div>
