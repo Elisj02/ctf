@@ -5,9 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+    <div class="max-w-7xl sm:px-6 lg:px-8 my-4">
         <div class="informacion-1 justify-content-center min-w-full block">
-            <div class="group-7">
+            <div class="d-inline-flex justify-content-center min-w-full block">
                 <a href="{{ url('/dashboard') }}">
                     <img alt="" class="sector2-2"
                         src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="max-w-7xl sm:px-6 lg:px-8 mt-5 mb-5">
-        <div class="informacion-2 justify-content-center min-w-full block my-4">
+        <div class="informacion-2 justify-content-center min-w-full block">
             <h1 class="estadisticas-del-juego">
                 ESTADÍSTICAS DEL JUEGO
             </h1>
