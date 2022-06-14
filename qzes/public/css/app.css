@@ -102,38 +102,6 @@ td {
     border-color: rgb(150, 98, 180);
 }
 
-.comodin {
-    background-color: var(--black);
-    width: 210px;
-    height: 100px;
-    margin-right: 54px;
-    border-radius: 20px;
-    padding: 15px 10px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.coin {
-    width: 28%;
-    height: 63%;
-    margin-top: 12px;
-}
-
-.num {
-    width: 11.54%;
-    height: 35.71%;
-    font-family: "Dosis";
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 25px;
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    margin-top: 20px;
-    margin-left: 8px;
-    margin-right: 8px;
-    letter-spacing: -0.8px;
-}
-
 .imagen {
     width: 200px;
     margin: 10px auto;
@@ -155,10 +123,8 @@ td {
 }
 
 .game-quiz-container {
-    width: 80%;
-    margin-left: 80px;
     margin-top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -433,77 +399,6 @@ input[type=radio]:checked~.option {
     }
 }
 
-.comodines-y-puntos {
-    font-family: "Dosis";
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 25px;
-    color: var(--black);
-    text-align: center;
-    letter-spacing: -1.2px;
-}
-
-.coste-y-funcion-de-los-comodiones {
-    width: 53.8%;
-    height: 2.28%;
-    font-family: "Dosis";
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 25px;
-    color: var(--black);
-    text-align: center;
-    margin-bottom: 98px;
-    margin-left: 228px;
-}
-
-.flex-wrapper-one {
-    margin-bottom: 83px;
-    padding: 0 0 0 83px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.comodin-regalo {
-    background-color: var(--black);
-    margin-right: 52px;
-    border-radius: 20px;
-    padding: 10px 8px 10px 13px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.vector {
-    width: 44.69%;
-    align-self: stretch;
-    margin-right: 23px;
-    object-fit: cover;
-}
-
-.num-3 {
-    width: 11.73%;
-    height: 31.25%;
-    font-family: "Dosis";
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 25px;
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    margin-top: 34px;
-    margin-right: 5px;
-    letter-spacing: -0.8px;
-}
-
-.coin {
-    width: 27.93%;
-    height: 62.5%;
-    margin-top: 21px;
-}
-
-.menu {
-    background-color: black;
-    color: white;
-}
-
 .sugerencias {
     margin-left: 90px;
     border-radius: 20px;
@@ -535,49 +430,11 @@ input[type=radio]:checked~.option {
     font-weight: bold;
 }
 
-.header {
-    background: linear-gradient(180deg,
-            var(--transparent-medium-spring-green) 0%,
-            rgba(121, 159, 214, 0.6) 0%,
-            rgba(122, 155, 214, 0.6) 0%,
-            rgba(123, 154, 214, 0.6) 0%,
-            var(--transparent-cornflower-blue-4) 0%,
-            var(--transparent-medium-purple) 33%,
-            var(--transparent-medium-purple-2) 63%,
-            var(--transparent-dark-violet) 100%,
-            var(--transparent-plum) 100%);
-    padding: 6px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: flex-start;
-    height: 80px;
-}
-
 .sector2-1 {
     width: 60px;
     height: 60px;
     margin-top: 6px;
     margin-left: 40px;
-}
-
-.group-4 {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.group-5 {
-    margin-bottom: 20px;
-    margin-left: 480px;
-    display: flex;
-    align-items: flex-end;
-}
-
-.group {
-    margin-bottom: 20px;
-    margin-left: 360px;
-    display: flex;
-    align-items: flex-end;
 }
 
 .acerca-de {
@@ -633,7 +490,7 @@ input[type=radio]:checked~.option {
     padding: 70px 60px 70px 60px;
     display: flex;
     align-items: center;
-    margin: 30px;
+    margin: 20px;
 }
 
 .fondo-blanco {
@@ -739,7 +596,6 @@ input[type=radio]:checked~.option {
 
 .pieChart {
     margin: 20px;
-    margin-left: 85px;
 }
 
 footer {
