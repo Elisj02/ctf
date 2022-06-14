@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="informacion-1 justify-content-center max-w-7xl sm:px-6 lg:px-8 my-4">
+    <div class="informacion-1 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
         <div class="d-inline-flex justify-content-center min-w-full block">
             <a href="{{ url('/dashboard') }}">
                 <img alt="" class="sector2-2"
