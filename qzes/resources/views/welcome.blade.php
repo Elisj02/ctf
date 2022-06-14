@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="informacion-2 justify-content-center">
+    <div class="informacion-2 justify-content-center max-w-4xl mx-auto sm:px-6 lg:px-8 my-4">
         <h1 class="estadisticas-del-juego">
             ESTADÍSTICAS DEL JUEGO
         </h1>

@@ -723,15 +723,9 @@ input[type=radio]:checked~.option {
 }
 
 .informacion-2 {
-    margin-top: 20px;
     background-color: rgba(52, 58, 64, 0.9);
-    overflow: hidden;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
     padding: 20px;
-    width: 750px;
-    margin-left: 85px;
 }
 
 .estadisticas-del-juego {

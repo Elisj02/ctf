@@ -4,7 +4,7 @@
             {{ __('Jugar') }}
         </h2>
     </x-slot>
-    <div class="informacion-2 justify-content-center mb-3">
+    <div class="informacion-2 justify-content-center max-w-4xl mx-auto sm:px-6 lg:px-8 my-4">
         <h1 class="estadisticas-del-juego">
             RANKING
         </h1>
@@ -39,7 +39,7 @@
                                 <p>{{ $r->username }}</p>
                             </td>
                             <td class="p-2 text-center block md:table-cell">
-                                {{ $r->puntos }}
+                                {{ ($r->puntos)*2 }}
                             </td>
                         </tr>
                     @endforeach
