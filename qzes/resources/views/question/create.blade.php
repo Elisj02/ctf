@@ -4,12 +4,10 @@
             {{ __('Nueva Pregunta') }}
         </h2>
     </x-slot>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
-        <div class="informacion-2 justify-content-center min-w-full block">
-            <h1 class="estadisticas-del-juego">
-                NUEVA PREGUNTA
-            </h1>
-        </div>
+    <div class="informacion-2 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+        <h1 class="estadisticas-del-juego">
+            NUEVA PREGUNTA
+        </h1>
     </div>
 
     <body>
