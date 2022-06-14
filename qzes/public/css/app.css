@@ -725,6 +725,7 @@ input[type=radio]:checked~.option {
 .informacion-2 {
     background-color: rgba(52, 58, 64, 0.9);
     border-radius: 20px;
+    padding: 15px;
 }
 
 .estadisticas-del-juego {
