@@ -40,7 +40,7 @@
                         name="email" id="email" required />
                 @endif
             </div>
-            <div class="mb-6">
+            <div class="mb-6" id="sugerencia">
                 <textarea rows="6" placeholder="Sugerencia"
                     class="w-full rounded p-3 text-gray-800 dark:text-gray-800 outline-none focus-visible:shadow-none focus:border-primary"
                     name="sugerencia" id="sugerencia" required></textarea>

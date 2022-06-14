@@ -11,7 +11,7 @@
         <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
             <h2 class="md:w-1/3 max-w-sm mx-auto">Icono</h2>
             <div class="md:w-2/3 max-w-sm mx-auto">
-                <img src="{{ $myuser->icon }}" style="width: 20%; margin: 10px auto; display: block;">
+                <img src="{{ asset('/storage/images/' . $myuser->icon) }}" style="width: 20%; margin: 10px auto; display: block;">
             </div>
         </div>
         <hr />

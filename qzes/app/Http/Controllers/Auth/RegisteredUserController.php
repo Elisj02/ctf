@@ -45,7 +45,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'username' => $request->username,
             'role' => 'user',
-            'icon' => 'https://cdn-icons-png.flaticon.com/512/3309/3309130.png',
+            'icon' => '3309130.png',
             'password' => Hash::make($request->password),
 
         ]);

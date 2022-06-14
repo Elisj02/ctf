@@ -63,11 +63,11 @@
                     </span>
                 </div>
             </div>
-            <div class="next-button-container">
+            <div class="next-button-container float-left">
                 <button id="comodin" onclick="comodin()" data-toggle="tooltip" data-placement="top"
                     title="Aporta la respuesta correcta a la pregunta para no perder puntos, puedes usarlo una vez por partida">Comodín</button>
             </div>
-            <div class="next-button-container">
+            <div class="next-button-container float-right">
                 <button onclick="handleNextQuestion()">Siguiente</button>
             </div>
 

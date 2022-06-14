@@ -98,8 +98,11 @@ class UserController extends Controller
             $newUser->surnames = $request->input('surnames');
             $newUser->email = $request->input('email');
             $newUser->username = $request->input('username');
-            $newUser->icon = $request->input('icon');
-
+            if (is_uploaded_file($request->icon)){
+                $nombreFoto = time() . "_" . $request->file('icon')->getClientOriginalName();
+                $newUser->icon = $nombreFoto;
+                $request->file('icon')->storeAs('public/images', $nombreFoto);
+            }
             $newUser->save();
 
             return redirect()->route('user.show', $newUser->id);

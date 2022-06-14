@@ -11,10 +11,11 @@
             class="px-8 pt-6 pb-8 mb-4 bg-white rounded" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
+            <div class="md:inline-flex space-y-2 md:space-y-0 w-full p-2 text-gray-500 items-center">
                 <h2 class="md:w-1/3 max-w-sm mx-auto">Icono</h2>
                 <div class="md:w-2/3 max-w-sm mx-auto">
-                    <img src="{{ $myuser->icon }}" style="width: 20%; margin: 10px auto; display: block;">
+                    <img src="{{ asset('/storage/images/' . $myuser->icon) }}"
+                        style="width: 20%; margin: 10px auto; display: block;">
                     <div class="w-full inline-flex border">
                         <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
                             <svg fill="none" class="w-6 text-gray-500 mx-auto" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,14 +23,13 @@
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
-                        <input type="url" name="icon" id="icon"
-                            class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                            placeholder="Icono" value={{ $myuser->icon }} />
+                        <input type="file" name="icon" id="icon"
+                            class="w-11/12 focus:outline-none focus:text-gray-600 p-2" />
                     </div>
                 </div>
             </div>
             <hr />
-            <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
+            <div class="md:inline-flex space-y-2 md:space-y-0 w-full p-2 text-gray-500 items-center">
                 <h2 class="md:w-1/3 max-w-sm mx-auto">Cuenta</h2>
                 <div class="md:w-2/3 max-w-sm mx-auto">
                     <label class="text-sm text-gray-500">Email</label>
@@ -42,14 +42,14 @@
                             </svg>
                         </div>
                         <input type="email" name="email" id="email"
-                            class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                            placeholder="Email" value={{ $myuser->email }} required />
+                            class="w-11/12 focus:outline-none focus:text-gray-600 p-2" placeholder="Email"
+                            value={{ $myuser->email }} required />
                     </div>
                 </div>
             </div>
 
             <hr />
-            <div class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
+            <div class="md:inline-flex  space-y-2 md:space-y-0  w-full p-2 text-gray-500 items-center">
                 <h2 class="md:w-1/3 mx-auto max-w-sm">Información personal</h2>
                 <div class="md:w-2/3 mx-auto max-w-sm space-y-5">
                     <div>
@@ -63,8 +63,8 @@
                                 </svg>
                             </div>
                             <input type="text" name="name" id="name"
-                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                placeholder="Nombre" value={{ $myuser->name }} required />
+                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2" placeholder="Nombre"
+                                value={{ $myuser->name }} required />
                         </div>
                     </div>
                     <div>
@@ -78,8 +78,8 @@
                                 </svg>
                             </div>
                             <input type="text" name="surnames" id="surnames"
-                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                placeholder="Apellidos" value={{ $myuser->surnames }} required />
+                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2" placeholder="Apellidos"
+                                value={{ $myuser->surnames }} required />
                         </div>
                     </div>
                     <div>
@@ -101,7 +101,7 @@
             </div>
 
             <hr />
-            <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
+            <div class="md:inline-flex w-full space-y-2 md:space-y-0 p-8 text-gray-500 items-center">
                 <div class="md:w-3/12 text-center md:pl-6">
                     <button type="submit"
                         class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-green-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
