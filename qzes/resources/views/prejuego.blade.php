@@ -15,6 +15,10 @@
             30 segundos para responder cada pregunta. <br> Si se acaba el tiempo la pregunta contará como incorrecta y
             pasará a la siguiente. <br>Hay un comodín que aporta la respuesta correcta, solo puedes usar uno por
             partida. <br>Al finalizar la partida puedes ver tus estadísticas en la página principal.<br><br>
+            <a href="{{ url('/dashboard') }}">
+                <img style="margin: 0 auto; display: block;" alt="" class="sector2-2"
+                    src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
+            </a><b>¡SUERTE!</b><br><br><br>
             <a href="{{ route('dashboard') }}">
                 <button
                     class="text-black mx-2 max-w-sm rounded-md text-center btnGrad py-2 px-2 inline-flex items-center focus:outline-none mr-2">
@@ -40,6 +44,7 @@
                 </button>
             </a>
         </p>
+
 
     </body>
 </x-app-layout>
