@@ -11,7 +11,7 @@
     </div>
 
     <body>
-        <p class="text-center mb-3">Cada partida tiene 10 preguntas, cada respuesta correcta vale 2 puntos. <br> Tienes
+        <p class="text-center mb-5">Cada partida tiene 10 preguntas, cada respuesta correcta vale 2 puntos. <br> Tienes
             30 segundos para responder cada pregunta. <br> Si se acaba el tiempo la pregunta contará como incorrecta y
             pasará a la siguiente. <br>Hay un comodín que aporta la respuesta correcta, solo puedes usar uno por
             partida. <br>Al finalizar la partida puedes ver tus estadísticas en la página principal.<br><br>
@@ -29,7 +29,7 @@
             </a>
             <a href="{{ route('qya.index') }}">
                 <button
-                    class="text-black mx-2 max-w-sm rounded-md text-center btnGrad py-2 px-2 inline-flex items-center focus:outline-none">
+                    class="text-black mx-2 max-w-sm rounded-md text-center btnGrad py-2 px-2 inline-flex items-center focus:outline-none mb-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                         class="bi bi-controller mr-2" viewBox="0 0 16 16">
                         <path

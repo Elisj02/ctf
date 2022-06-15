@@ -21,7 +21,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', [UserAnswerController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

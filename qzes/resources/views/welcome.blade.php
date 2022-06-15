@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="informacion-1 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
-        <div class="group-7">
+        <div class="d-inline-flex justify-content-center min-w-full block">
             <a href="{{ url('/dashboard') }}">
                 <img alt="" class="sector2-2"
                     src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="pieChart">
-        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        <canvas id="myChart" style="width:100%;max-width:700px;margin:auto;display:block;"></canvas>
         <script>
             var xValues = ["Ciencias", "Geografía", "Arte", "Deporte", "Historia",
                 "Entretenimiento"

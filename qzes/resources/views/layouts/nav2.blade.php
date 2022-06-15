@@ -1,11 +1,11 @@
 <nav class="bck">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
+        <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('welcome') }}">
                         <img style="width: 50px; height: 50px;" alt=""
                             src="https://static.overlay-tech.com/assets/7ca997db-bbfc-4b34-a36d-2b37e0f03942.png" />
                     </a>
@@ -27,28 +27,27 @@
                         {{ __('Acerca de') }}
                     </x-nav-link>
                 </div>
-                @if (Route::has('login'))
-                    <div class="group">
-                        @auth
-                            <a href="{{ url('/dashboard') }}"
-                                class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}">
+            </div>
+
+            @if (Route::has('login'))
+                <div class="flex items-center float-right">
+                    @auth
+                    @else
+                        <a href="{{ route('login') }}">
+                            <button class="button-header">
+                                <p class="log-in">Iniciar Sesión</p>
+                            </button>
+                        </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">
                                 <button class="button-header">
-                                    <p class="log-in">Iniciar Sesión</p>
+                                    <p class="log-in">Regístrate</p>
                                 </button>
                             </a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">
-                                    <button class="button-header">
-                                        <p class="log-in">Regístrate</p>
-                                    </button>
-                                </a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-            </div>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </div>
     </div>
 
