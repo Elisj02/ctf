@@ -11,7 +11,8 @@
         <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
             <h2 class="md:w-1/3 max-w-sm mx-auto">Icono</h2>
             <div class="md:w-2/3 max-w-sm mx-auto">
-                <img src="{{ asset('/storage/images/' . $myuser->icon) }}" style="width: 20%; margin: 10px auto; display: block;">
+                <img src="{{ asset('/storage/images/' . $myuser->icon) }}"
+                    style="width: 20%; margin: 10px auto; display: block;">
             </div>
         </div>
         <hr />
@@ -83,10 +84,10 @@
 
         <hr />
         <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
-            <div class="md:w-3/12 text-center md:pl-6">
+            <div class="md:w-3/12 text-center pl-6">
                 <a href="{{ route('user.edit', $myuser->id) }}">
                     <button
-                        class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
+                            class="text-white mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-3 inline-flex items-center focus:outline-none md:float-left ml-3">
                         <svg fill="none" class="w-4 text-white mr-2" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -102,7 +103,7 @@
                         @csrf
                         @method('DELETE')
                         <button id="btn-submit" type="submit"
-                            class="text-white mx-auto max-w-sm rounded-md text-center bg-red-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
+                            class="text-white mx-auto max-w-sm rounded-md text-center bg-red-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right mr-3">
                             <svg fill="none" class="w-4 mr-2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

@@ -72,7 +72,7 @@
                         rgba(172, 126, 231, 1) 73%,
                         rgba(209, 128, 229, 1) 110%
                     ); border: none; margin-left: 15px; color:black; font-weight: bold;">
-                    {{ __('Registrar') }}
+                    {{ __('Crear cuenta') }}
                 </x-button>
             </div>
         </form>
