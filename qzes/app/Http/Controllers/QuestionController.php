@@ -146,7 +146,7 @@ class QuestionController extends Controller
             if (is_uploaded_file($request->image)){
                 $nombreFoto = time() . "_" . $request->file('image')->getClientOriginalName();
                 $newQuestion->image = $nombreFoto;
-                $request->file('imagen')->storeAs('public/images', $nombreFoto);
+                $request->file('image')->storeAs('public/images', $nombreFoto);
             }
             $newQuestion->save();
 

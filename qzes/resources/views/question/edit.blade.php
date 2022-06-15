@@ -33,7 +33,7 @@
                     <div class="image-question-container">
                         <img class="imagen" src="{{ asset($url . $myquestion->image) }}" />
                         <div class="image-question-container mt-4">
-                            Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" id="imagen" type="file"
+                            Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" type="file"
                                 name="image" id="image" />
                         </div>
 
