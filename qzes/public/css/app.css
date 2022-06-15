@@ -83,7 +83,7 @@ td {
 }
 
 .imagen {
-    width: 200px;
+    width: 300px;
     margin: 10px auto;
     display: block;
     border-radius: 20px;
@@ -292,6 +292,8 @@ input[type=radio]:checked~.option {
     .game-quiz-container {
         width: 90%;
         height: 80vh;
+        margin-top: 20px;
+        margin-bottom: 25px;
     }
 
     .game-details-container h1 {
