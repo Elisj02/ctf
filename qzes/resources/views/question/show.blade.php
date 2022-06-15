@@ -22,18 +22,27 @@
                         <h1 class="text-center">{{ $myquestion->question }}</h1>
                     </div>
                     <div class="game-options-container">
-                        <form class="boxed">
-                            @foreach ($myanswers as $myanswer)
-                                @if ($myanswer->option == $myquestion->answer)
-                                    <input type="radio" readonly checked>
-                                    <label>{{ $myanswer->option }}</label>
-                                @else
-                                    <input type="radio" readonly>
-                                    <label>{{ $myanswer->option }}</label>
-                                @endif
-                            @endforeach
+                        <div class="boxed">Respuestas:<br>
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center; background: none"
+                                name="r1" id="r1" placeholder="{{ $myanswers[0]->option }}"
+                                value="{{ $myanswers[0]->option }}" readonly>
 
-                        </form>
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
+                                name="r2" id="r2" placeholder="{{ $myanswers[1]->option }}"
+                                value="{{ $myanswers[1]->option }}" readonly>
+
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
+                                name="r3" id="r3" placeholder="{{ $myanswers[2]->option }}"
+                                value="{{ $myanswers[2]->option }}" readonly>
+
+                            <input type="text"
+                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background: none"
+                                name="r4" id="r4" placeholder="{{ $myanswers[3]->option }}"
+                                value="{{ $myanswers[3]->option }}" readonly>
+                        </div>
                     </div>
                 </div>
                 <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
