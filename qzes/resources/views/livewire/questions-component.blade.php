@@ -1,10 +1,10 @@
 <div>
-    <div class="row">
-        <div class="form-group has-search col-md-4 ml-4">
+    <div class="row max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="form-group has-search col-md-4">
             <span class="bi bi-search form-control-feedback"></span>
             <input wire:model="pregunta" class="form-control inpTxt" type="text" placeholder="Buscar por pregunta">
         </div>
-        <div class="form-group has-search col-md-3 offset-md-4">
+        <div class="form-group has-search col-md-3 offset-md-5">
             <select wire:model="category" class="form-control">
                 <option value="">Todas las categorías</option>
                 @foreach ($categories as $categ)
@@ -12,20 +12,18 @@
                 @endforeach
             </select>
         </div>
+        <form action="{{ route('question.create') }}" style="margin-bottom:20px;">
+            @csrf
+            <button id="btn-submit" type="submit"
+                class="text-white rounded-md text-center bg-sky-400 py-1 px-1 inline-flex items-center focus:outline-none md:float-left ml-3">
+                <svg fill="none" class="w-4 mr-2" viewBox="0 0 16 16" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+                Nueva pregunta
+            </button>
+        </form>
     </div>
-
-
-    <form action="{{ route('question.create') }}" style="margin-left: 30px; margin-bottom:70px;">
-        @csrf
-        <button id="btn-submit" type="submit"
-            class="text-white rounded-md text-center bg-sky-400 py-1 px-1 inline-flex items-center focus:outline-none md:float-left">
-            <svg fill="none" class="w-4 mr-2" viewBox="0 0 16 16" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-            Nueva pregunta
-        </button>
-    </form>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <table class="min-w-full block md:table">
