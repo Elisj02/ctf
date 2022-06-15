@@ -29,7 +29,7 @@
             </a>
             <a href="{{ route('qya.index') }}">
                 <button
-                    class="text-black mx-2 max-w-sm rounded-md text-center btnGrad py-2 px-2 inline-flex items-center focus:outline-none mb-5">
+                    class="text-black mx-2 max-w-sm rounded-md text-center btnGrad py-2 px-2 inline-flex items-center focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                         class="bi bi-controller mr-2" viewBox="0 0 16 16">
                         <path
