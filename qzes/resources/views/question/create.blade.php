@@ -18,24 +18,27 @@
                     <select name="category" id="category" required
                         style="border-radius: 20px; text-align: center; margin-left: 20px;">
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">&nbsp;&nbsp;&nbsp;{{ $category->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                         @endforeach
                     </select>
                 </p>
                 <div class="game-quiz-container">
-                    <div class="image-question-container mt-4">
+                    <div class="image-question-container mt-4 flex justify-content-center">
                         Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" id="imagen" type="file"
                             name="image" id="image" required />
                     </div>
-                    <div class="container my-4">
+                    <div class="container my-4 justify-content-center">
                         <p style="text-align: center"> Pregunta:<input type="text"
-                                style="border-radius: 20px; width: 85%; border: 2px solid #ccc;margin: 5px; text-align:center;"
+                                style="border-radius: 20px; width: 60%; border: 2px solid #ccc;margin: 5px; text-align:center;"
                                 name="question" placeholder="Escribe aquí tu pregunta" required></p>
                     </div>
-                    <div class="container mb-4">
-                        <p style="text-align: center">Respuesta correcta:<input type="text"
-                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;"
-                                name="answer" id="answer" placeholder="respuesta correcta" required></p>
+                    <div class="game-quiz-container mb-4" style="margin: 0px auto; display: block" >
+                        Respuesta correcta:<select name="answer" id="answer" required style="border-radius: 20px; text-align: center; margin-left: 20px;">
+                            <option value="1">&nbsp;&nbsp;&nbsp;Respuesta 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option value="2">&nbsp;&nbsp;&nbsp;Respuesta 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option value="3">&nbsp;&nbsp;&nbsp;Respuesta 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option value="4">&nbsp;&nbsp;&nbsp;Respuesta 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                        </select>
                     </div>
                     <div class="game-options-container">
                         <div class="boxed">Respuestas:<br>

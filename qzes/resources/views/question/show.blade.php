@@ -21,6 +21,7 @@
                     <div class="container my-4">
                         <h1 class="text-center">{{ $myquestion->question }}</h1>
                     </div>
+                    <p style="text-align: center;" class="my-2">Respuesta correcta: {{ $myquestion->answer }}</p>
                     <div class="game-options-container">
                         <div class="boxed">Respuestas:<br>
                             <input type="text"

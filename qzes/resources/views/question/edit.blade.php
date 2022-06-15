@@ -21,10 +21,13 @@
                         style="border-radius: 20px; text-align: center; margin-left: 20px;">
                         @foreach ($categories as $category)
                             @if ($category->id == $myquestion->category_id)
-                                <option selected="selected" value="{{ $category->id }}">{{ $category->name }}
+                                <option selected="selected" value="{{ $category->id }}">
+                                    &nbsp;&nbsp;&nbsp;{{ $category->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </option>
                             @else
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}">
+                                    &nbsp;&nbsp;&nbsp;{{ $category->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </option>
                             @endif
                         @endforeach
                     </select>
@@ -33,22 +36,32 @@
                     <div class="image-question-container">
                         <img class="imagen" src="{{ asset($url . $myquestion->image) }}" />
                         <div class="image-question-container mt-4">
-                            Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" type="file"
-                                name="image" id="image" />
+                            Imagen:<input class="w-full px-3 py-2 mb-3 text-sm leading-tight" type="file" name="image"
+                                id="image" />
                         </div>
 
                     </div>
-                    <div class="container my-4">
-                        Pregunta:<input type="text"
-                            style="border-radius: 20px; width: 100%; background: none; border: 2px solid #ccc; text-align:center;"
-                            value="{{ $myquestion->question }}" placeholder="{{ $myquestion->question }}"
-                            name="question">
+                    <div class="container my-4 justify-content-center">
+                        <p style="text-align: center"> Pregunta:<input type="text"
+                                style="border-radius: 20px; width: 60%; border: 2px solid #ccc;margin: 5px; text-align:center; background: none"
+                                value="{{ $myquestion->question }}" placeholder="{{ $myquestion->question }}"
+                                name="question"></p>
                     </div>
-                    <div class="container mb-4">
-                        <p style="text-align: center">Respuesta correcta:<input type="text"
-                                style="border-radius: 20px; border: solid 2px #ccc; margin: 5px; width: 45%; text-align:center;background:none;"
-                                name="answer" id="answer" placeholder="{{ $myquestion->answer }}"
-                                value="{{ $myquestion->answer }}" required></p>
+                    <div class="game-quiz-container mb-4" style="margin: 0px auto; display: block">
+                        Respuesta correcta:<select name="answer" id="answer" required
+                            style="border-radius: 20px; text-align: center; margin-left: 20px;">
+                            @foreach ($myanswers as $key => $myanswer)
+                                @if ($myanswer->option == $myquestion->answer)
+                                    <option value="{{ $key + 1 }}" selected>&nbsp;&nbsp;&nbsp;Respuesta
+                                        {{ $key + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </option>
+                                @else
+                                    <option value="{{ $key + 1 }}">&nbsp;&nbsp;&nbsp;Respuesta
+                                        {{ $key + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                     <div class="game-options-container">
                         <div class="boxed">Respuestas:<br>

@@ -51,7 +51,21 @@ class QuestionController extends Controller
         try {
             $newQuestion = new Question();
             $newQuestion->question = $request->input('question');
-            $newQuestion->answer = $request->input('answer');
+                        switch($request->input('answer')){
+                case '1':
+                    $answer = $request->input('r1');
+                    break;
+                case '2':
+                    $answer = $request->input('r2');
+                    break;
+                case '3':
+                    $answer = $request->input('r3');
+                    break;
+                case '4':
+                    $answer = $request->input('r4');
+                    break;
+                }
+            $newQuestion->answer = $answer;
             $newQuestion->category_id = $request->input('category');
             $nombreFoto = time() . "_" . $request->file('image')->getClientOriginalName();
             $newQuestion->image = $nombreFoto;
@@ -140,7 +154,22 @@ class QuestionController extends Controller
         try {
             $newQuestion = Question::findOrFail($id);
             $newQuestion->question = $request->input('question');
-            $newQuestion->answer = $request->input('answer');
+            switch($request->input('answer')){
+                case '1':
+                    $answer = $request->input('r1');
+                    break;
+                case '2':
+                    $answer = $request->input('r2');
+                    break;
+                case '3':
+                    $answer = $request->input('r3');
+                    break;
+                case '4':
+                    $answer = $request->input('r4');
+                    break;
+                }
+
+            $newQuestion->answer = $answer;
             $newQuestion->category_id = $request->input('category');
 
             if (is_uploaded_file($request->image)){
