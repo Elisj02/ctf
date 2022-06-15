@@ -7,6 +7,11 @@
 
     <body>
         <main>
+            <div class="informacion-2 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+                <h1 class="estadisticas-del-juego">
+                    CATEGORÍAS
+                </h1>
+            </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5 mb-5">
                 <table class="min-w-full block md:table">
                     <thead class="block md:table-header-group">
@@ -35,10 +40,10 @@
                                 <td class="p-2 text-center block md:table-cell">
                                     {{ $category->description }}
                                 </td>
-                                <?php $count = 0 ?>
+                                <?php $count = 0; ?>
                                 @foreach ($questions as $question)
                                     @if ($question->category_id == $category->id)
-                                        <?php $count = $count +1; ?>
+                                        <?php $count = $count + 1; ?>
                                     @endif
                                 @endforeach
                                 <td class="p-2 text-center block md:table-cell">
