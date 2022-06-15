@@ -35,7 +35,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="bg-gray-100">
+    <div class="bg-gray-100" style="min-height: 100%;position: relative; padding-bottom: 230px;">
         @auth
             @include('layouts.navigation')
         @else
@@ -52,5 +52,4 @@
     </div>
 </body>
 <x-footer />
-
 </html>

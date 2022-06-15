@@ -583,8 +583,11 @@ footer {
             var(--transparent-medium-purple-2) 67%,
             var(--transparent-plum) 100%);
     padding: 20px;
-    bottom: 0px;
-}
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+ }
 
 .sector2-1Fot {
     width: 80px;
@@ -650,6 +653,9 @@ footer {
 }
 
 html {
+    min-height: 100vh;
+      position: relative;
+
     line-height: 1.5;
     /* 1 */
     -webkit-text-size-adjust: 100%;
