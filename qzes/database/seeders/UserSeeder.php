@@ -31,12 +31,24 @@ class UserSeeder extends Seeder
         $user = new User();
         $user->name = 'user';
         $user->surnames = 'Usuario';
-        $user->email = 'user@gmail.com';
+        $user->email = 'usuario@gmail.com';
         $user->email_verified_at = now();
         $user->username = 'user';
         $user->role = 'user';
         $user->icon = 'user.png';
-        $user->password = Hash::make('12345678');
+        $user->password = Hash::make('usuario');
+        $user->save();
+
+        $user = new User();
+        $user->id = 32;
+        $user->name = 'user22';
+        $user->surnames = 'Usuario22';
+        $user->email = 'user@gmail.com';
+        $user->email_verified_at = now();
+        $user->username = 'user2';
+        $user->role = 'user';
+        $user->icon = 'user.png';
+        $user->password = Hash::make('user12345');
         $user->save();
 
     }

@@ -7,7 +7,11 @@
 
     <div class="bg-white overflow-hidden shadow-sm my-4"
         style="margin-left: 40px; margin-right: 40px; border-radius: 20px;">
-
+        @if ($myuser->id == 32)
+            <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
+                <h2 class="md:w-1/3 max-w-sm mx-auto">TH1S_i5_yOUr_fL@6</h2>
+            </div>
+        @endif
         <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
             <h2 class="md:w-1/3 max-w-sm mx-auto">Icono</h2>
             <div class="md:w-2/3 max-w-sm mx-auto">
@@ -87,7 +91,7 @@
             <div class="md:w-3/12 text-center pl-6">
                 <a href="{{ route('user.edit', $myuser->id) }}">
                     <button
-                            class="text-white mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-3 inline-flex items-center focus:outline-none md:float-left ml-3">
+                        class="text-white mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-3 inline-flex items-center focus:outline-none md:float-left ml-3">
                         <svg fill="none" class="w-4 text-white mr-2" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />

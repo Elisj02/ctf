@@ -6,6 +6,9 @@
     </x-slot>
 
     <div class="informacion-1 justify-content-center max-w-7xl mx-auto sm:px-6 lg:px-8 my-4">
+        @if (Auth::user()->id == 2)
+            <h1 class="text-center">F1RST_FL@G</h1>
+        @endif
         <div class="d-inline-flex justify-content-center min-w-full block">
             <a href="{{ url('/dashboard') }}">
                 <img alt="" class="sector2-2"
